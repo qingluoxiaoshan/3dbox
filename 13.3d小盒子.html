@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			/* 希望 3d效果明显一点 可以设置的小一些 越大 越不明显 */
+			/*perspective: 500px;*/
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			border: 1px solid gray;
+			position: relative;
+			transition: all 2s;
+
+			/* 将 3d变换的 父元素 添加一个属性 即可看到 3d的变换效果 */
+			transform-style: preserve-3d;
+		}
+		.box .item{
+			width: 100%;
+			height: 100%;
+			font-size: 150px;
+			text-align: center;
+			line-height: 200px;
+			font-weight: 900;
+			position: absolute;
+		}
+		.item:nth-child(1){
+			background: orange;	
+			transform: rotateY(0deg) translateZ(100px);
+			/*前*/
+		}
+		.item:nth-child(2){
+			background: red;
+			transform: rotateY(180deg) translateZ(100px);	
+			/*后*/
+		}
+		.item:nth-child(3){
+			background: blue;
+			transform: rotateY(90deg) translateZ(100px);
+			/*右		*/
+		}
+		.item:nth-child(4){
+			background: pink;
+			transform: rotateY(-90deg) translateZ(100px);
+			/*左		*/
+		}
+		.item:nth-child(5){
+			background: green;
+			transform: rotateX(90deg) translateZ(100px);
+			/*上		*/
+		}
+		.item:nth-child(6){
+			background: yellowgreen;
+			transform: rotateX(-90deg) translateZ(100px);
+			/*下		*/
+		}
+
+		/* 设置过渡效果 */
+		.box:hover{
+			transform: rotateX(450deg) rotateY(450deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+		<div class="item">6</div>
+	</div>
+</body>
+</html>
